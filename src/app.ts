@@ -29,8 +29,15 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
         console.log(`Finished build for ${version} in ${Date.now() - time}ms`);
     }
 
-    if (getVersion.stable != cache.stable && (cache.stable = getVersion.stable)) await build("stable");
-    if (getVersion.preview != cache.preview && (cache.preview = getVersion.preview)) await build("preview");
+    if (getVersion.stable != cache.stable && (cache.stable = getVersion.stable)) {
+        console.log(`Found new stable version: ${getVersion.stable}`);
+        await build("stable");
+    }
+
+    if (getVersion.preview != cache.preview && (cache.preview = getVersion.preview)) {
+        console.log(`Found new preview version: ${getVersion.stable}`);
+        await build("preview");
+    }
 
     await Utils.writeJson("cache.json", cache);
 })();

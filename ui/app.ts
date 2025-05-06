@@ -15,6 +15,17 @@ interface ItemList {
 }
 
 (async () => {
+    [
+        Vanilla.common.highlightSlotPanel_highlight(), Vanilla.common.highlightSlotPanel_whiteBorder()
+    ].forEach(ui => ui.override.addBindings({
+        binding_name: <any>"none",
+        binding_name_override: BindingName.Visible
+    }));
+
+    Vanilla.common.slotSelected({ ignored: true });
+    Vanilla.common.inventoryIconPanel_hoverText({ ignored: true });
+    Vanilla.common.selectedItemDetails_itemPanelImage({ ignored: true });
+
     const propertyBags: {
         [key: `#item_id:${number}`]: string
     } = {}
