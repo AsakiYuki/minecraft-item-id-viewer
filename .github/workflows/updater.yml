@@ -23,7 +23,7 @@ jobs:
             - name: Install dependencies
               run: bun install
 
-            - name: Run
+            - name: Runb
               run: bun run build
 
             - name: Read commit message
