@@ -10,6 +10,7 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
 (async () => {
     const getVersion = await Utils.getVersion();
     const cache = await Utils.readJson("cache.json");
+    let newVersionFound = false;
 
     async function build(version: "stable" | "preview") {
         console.log(`Starting build for ${version}...`);
@@ -32,11 +33,17 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
     if (getVersion.stable != cache.stable && (cache.stable = getVersion.stable)) {
         console.log(`Found new stable version: ${getVersion.stable}`);
         await build("stable");
+        newVersionFound = true;
     }
 
     if (getVersion.preview != cache.preview && (cache.preview = getVersion.preview)) {
         console.log(`Found new preview version: ${getVersion.stable}`);
         await build("preview");
+        newVersionFound = true;
+    }
+
+    if (!newVersionFound) {
+        console.log("No new versions found");
     }
 
     await Utils.writeJson("cache.json", cache);
