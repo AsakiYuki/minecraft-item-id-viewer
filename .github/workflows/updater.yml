@@ -29,7 +29,7 @@ jobs:
             - name: Read commit message
               id: read_commit
               run: |
-                  COMMIT_MSG=$(cat commit-message.txt)
+                  COMMIT_MSG=$(cat commit-msg.txt)
                   echo "message=$COMMIT_MSG" >> "$GITHUB_OUTPUT"
 
             - name: Check if commit change
