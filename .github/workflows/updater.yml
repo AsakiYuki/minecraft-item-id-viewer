@@ -1,0 +1,39 @@
+name: Update Minecraft Item ID
+
+on:
+    push:
+        branches: main
+
+    schedule:
+        - cron: "0 * * * *"
+
+permissions:
+    contents: write
+
+jobs:
+    Main-Updater:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
+
+            - name: Install dependencies
+              run: bun install
+
+            - name: Run
+              run: bun run build
+
+            - name: Check if commit change
+              if: success()
+              run: |
+                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+
+                  git add build/preview_version.mcpack build/stable_version.mcpack cache.json
+
+                  COMMIT_MSG=$(cat commit-msg.txt)
+                  git commit -m "$COMMIT_MSG"
+                  git push

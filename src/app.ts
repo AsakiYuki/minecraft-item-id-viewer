@@ -12,6 +12,8 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
     const cache = await Utils.readJson("cache.json");
     let newVersionFound = false;
 
+    let commit = "New version found: ";
+
     async function build(version: "stable" | "preview") {
         console.log(`Starting build for ${version}...`);
         const time = Date.now();
@@ -33,18 +35,22 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
     if (getVersion.stable != cache.stable && (cache.stable = getVersion.stable)) {
         console.log(`Found new stable version: ${getVersion.stable}`);
         await build("stable");
+        commit += `stable-${getVersion.stable}`;
         newVersionFound = true;
     }
 
     if (getVersion.preview != cache.preview && (cache.preview = getVersion.preview)) {
         console.log(`Found new preview version: ${getVersion.stable}`);
         await build("preview");
+        if (newVersionFound) commit += ", ";
+        commit += `preview-${getVersion.preview}`;
         newVersionFound = true;
     }
 
-    if (!newVersionFound) {
-        console.log("No new versions found");
+    if (newVersionFound) {
+        fs.writeFileSync("commit-msg.txt", commit);
     }
 
     await Utils.writeJson("cache.json", cache);
+    process.exitCode = newVersionFound ? 0 : 1;
 })();

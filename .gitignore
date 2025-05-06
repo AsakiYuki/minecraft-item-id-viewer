@@ -12,5 +12,6 @@ asakiyuki.env.cjs
 # Compress package
 Minecraft-UIBuild.mcpack
 
-# Some file
-cache.json
+# Unusage file
+commit-msg.txt
+manifest.json
