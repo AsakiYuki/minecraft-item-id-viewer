@@ -47,10 +47,8 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
         newVersionFound = true;
     }
 
-    if (newVersionFound) {
-        fs.writeFileSync("commit-msg.txt", commit);
-    }
+    if (newVersionFound) fs.writeFileSync("commit-msg.txt", commit);
+    else fs.writeFileSync("commit-msg.txt", "");
 
     await Utils.writeJson("cache.json", cache);
-    process.exitCode = newVersionFound ? 0 : 1;
 })();
