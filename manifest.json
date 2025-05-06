@@ -1,0 +1,14 @@
+{
+    "name": "Item ID Viewer (1.21.90.22 Preview)",
+    "description": "A tool to view item IDs in Minecraft.\nNote: Item IDs may display incorrectly after each version update or when installed alongside add-ons.\nDeveloped by Asaki Yuki",
+    "version": [
+        0,
+        0,
+        1
+    ],
+    "baseGameVersion": [
+        1,
+        21,
+        90
+    ]
+}

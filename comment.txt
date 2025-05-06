@@ -1,0 +1,2 @@
+Minecraft Item IDs viewer made by Asaki Yuki
+Source code: https://github.com/AsakiYuki/minecraft-item-id-viewer

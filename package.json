@@ -1,0 +1,25 @@
+{
+  "name": "itemid-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "To install dependencies:",
+  "license": "ISC",
+  "author": "Asaki Yuki",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "ui-dev": "bun --watch ui/app.ts",
+    "ui": "bun ui/app.ts",
+    "build": "bun src/app.ts"
+  },
+  "dependencies": {
+    "@types/node": "^22.15.12",
+    "jsonui-scripting": "^2.2.11"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
