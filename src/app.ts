@@ -28,15 +28,26 @@ if (!fs.existsSync("build")) fs.mkdirSync("build");
             baseGameVersion: Utils.parseVersion(getVersion[version]),
         });
         execSync(`bun run ui --version=${version}`, { stdio: "ignore" });
-        fs.cpSync("Minecraft-UIBuild.mcpack", `build/${version}_version.mcpack`);
+        fs.cpSync("Minecraft-UIBuild.mcpack", `build/${version}.mcpack`);
         console.log(`Finished build for ${version} in ${Date.now() - time}ms`);
     }
 
-    if (getVersion.stable != cache.stable && (cache.stable = getVersion.stable)) {
+    if (getVersion.stable != cache.stable) {
         console.log(`Found new stable version: ${getVersion.stable}`);
         await build("stable");
         commit += `stable-${getVersion.stable}`;
         newVersionFound = true;
+
+        // Add to available versions
+        const { all_versions } = await Utils.readJson("build/backup/list.json");
+
+        fs.cpSync("build/stable.mcpack", `build/backup/stable-${getVersion.stable}.mcpack`);
+        all_versions.push(`stable-${getVersion.stable}`);
+
+        await Utils.writeJson("build/backup/list.json", { all_versions });
+
+        // Update cache
+        cache.stable = getVersion.stable
     }
 
     if (getVersion.preview != cache.preview && (cache.preview = getVersion.preview)) {

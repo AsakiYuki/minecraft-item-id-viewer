@@ -5,8 +5,8 @@
 
 # Download
 
--   Minecraft Stable: [Download](https://raw.githubusercontent.com/AsakiYuki/minecraft-item-id-viewer/main/build/stable_version.mcpack)
--   Minecraft Preview: [Download](https://raw.githubusercontent.com/AsakiYuki/minecraft-item-id-viewer/main/build/preview_version.mcpack)
+-   For Latest Minecraft Stable: [Download](https://raw.githubusercontent.com/AsakiYuki/minecraft-item-id-viewer/main/build/stable.mcpack)
+-   For Latest Minecraft Preview: [Download](https://raw.githubusercontent.com/AsakiYuki/minecraft-item-id-viewer/main/build/preview.mcpack)
 
 # Preview
 
