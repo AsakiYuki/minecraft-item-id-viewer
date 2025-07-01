@@ -28,7 +28,7 @@ interface ItemList {
 	} = {}
 
 	if (["stable", "preview"].includes(version)) {
-		const item_datas = await fetch("https://asakiyuki.com/api/minecraft/items/id").then(
+		const item_datas = await fetch(`https://asakiyuki.com/api/minecraft/items/id?version=${version}`).then(
 			r => r.json() as Promise<ItemList>
 		)
 		const item_list = item_datas.items
