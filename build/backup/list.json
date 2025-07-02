@@ -1,16 +1,17 @@
 {
-	"all_versions": [
-		"stable-1.21.70",
-		"preview-1.21.90.22",
-		"stable-1.21.80",
-		"preview-1.21.90.23",
-		"preview-1.21.90.25",
-		"preview-1.21.90.26",
-		"preview-1.21.90.27",
-		"preview-1.21.90.28",
-		"preview-1.21.100.20",
-		"stable-1.21.90",
-		"preview-1.21.100.21",
-		"preview-1.21.100.22"
-	]
+    "all_versions": [
+        "stable-1.21.70",
+        "preview-1.21.90.22",
+        "stable-1.21.80",
+        "preview-1.21.90.23",
+        "preview-1.21.90.25",
+        "preview-1.21.90.26",
+        "preview-1.21.90.27",
+        "preview-1.21.90.28",
+        "preview-1.21.100.20",
+        "stable-1.21.90",
+        "preview-1.21.100.21",
+        "preview-1.21.100.22",
+        "preview-1.21.100.23"
+    ]
 }
