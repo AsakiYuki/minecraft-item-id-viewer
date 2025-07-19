@@ -27,7 +27,7 @@ if (!fs.existsSync("build")) fs.mkdirSync("build")
 			version: [0, 0, 1],
 			baseGameVersion: Utils.parseVersion(getVersion[version]),
 		})
-		execSync(`bun run src/app.ts --version=${version}`, { stdio: "ignore" })
+		execSync(`npx bun run ui --version=${version}`, { stdio: "ignore" })
 		fs.cpSync("Minecraft-UIBuild.mcpack", `build/${version}.mcpack`)
 
 		all_versions.push(`${version}-${getVersion[version]}`)
