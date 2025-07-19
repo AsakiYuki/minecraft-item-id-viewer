@@ -8,9 +8,9 @@
 	"type": "commonjs",
 	"main": "index.js",
 	"scripts": {
-		"ui-dev": "bun --watch src/ui.ts",
-		"ui": "bun src/ui.ts",
-		"build": "bun src/build.ts"
+		"ui-dev": "bun run --watch src/ui.ts",
+		"ui": "bun run src/ui.ts",
+		"build": "bun run src/build.ts"
 	},
 	"dependencies": {
 		"@types/node": "^22.15.12",
