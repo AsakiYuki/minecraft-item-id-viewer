@@ -6,7 +6,6 @@ import Utils from "../utils"
 if (!fs.existsSync("cache.json")) fs.writeFileSync("cache.json", '{"stable":null,"preview":null}')
 if (!fs.existsSync("manifest.json")) fs.writeFileSync("manifest.json", '{"name":"Minecraft: Item ID Viewer"}')
 if (!fs.existsSync("build")) fs.mkdirSync("build")
-
 ;(async () => {
 	const getVersion = await Utils.getVersion()
 	const cache = await Utils.readJson("cache.json")
@@ -28,7 +27,7 @@ if (!fs.existsSync("build")) fs.mkdirSync("build")
 			version: [0, 0, 1],
 			baseGameVersion: Utils.parseVersion(getVersion[version]),
 		})
-		execSync(`bun run ui --version=${version}`, { stdio: "ignore" })
+		execSync(`bun run src/app.ts --version=${version}`, { stdio: "ignore" })
 		fs.cpSync("Minecraft-UIBuild.mcpack", `build/${version}.mcpack`)
 
 		all_versions.push(`${version}-${getVersion[version]}`)
