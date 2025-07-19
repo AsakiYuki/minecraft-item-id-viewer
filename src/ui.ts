@@ -1,4 +1,4 @@
-import { BindingName, UI, Vanilla } from "jsonui-scripting"
+import { BindingName, Vanilla } from "asajs"
 
 const version = process.argv.find(arg => arg.startsWith("--version="))?.split("=")[1] || "stable"
 
